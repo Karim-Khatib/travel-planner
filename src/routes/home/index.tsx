@@ -1,7 +1,6 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import { useEffect, useState } from 'react'
-import type { ItineraryAIResponse, TripsPlan } from '@/lib/types'
 import UserAvatar from '@/components/UserAvatar'
 import { Button } from '@/components/ui/button'
 import { supabase } from '@/db/SupabaseClinet'
