@@ -6,7 +6,14 @@ const en = {
     travel_planner_description: "Where are you exploring next?",
     tool_list: "Tools List",
     travel_plan_tools: "Use our assortment of travel plan tools",
-    planing_ahead:"PLANNING AHEAD",
+    planing_ahead: "PLANNING AHEAD",
+    "{{adults}} adults, {{children}} children": "{{adults}} adults, {{children}} children",
+    "Generating your plan...":"Generating your plan...",
+    plan: {
+        budget: "What is your budget?",
+        dateRang: "What is the date range",
+        childrenAdults:"Who is traveling?"
+    },
     form: {
         title: "Create Account",
         interests_title: "What interests you?",

@@ -1,6 +1,6 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useStore } from '@tanstack/react-store'
-import backgoundImag from '../../public/backgound.jpg'
+import backgoundImag from '../assets/backgound.jpg'
 import { userStore } from '@/lib/userStore'
 import MainLayout from '@/components/MainLayout'
 import CircularLoading from '@/components/ui/CircularLoading'

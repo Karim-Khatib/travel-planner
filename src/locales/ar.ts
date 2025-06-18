@@ -8,7 +8,14 @@ const ar:typeof en = {
   tool_list: "قائمة الأدوات",
   travel_planner_description: "أين ستستكشف بعد ذلك؟",
   travel_plan_tools: "استخدم مجموعتنا من أدوات تخطيط الرحلات",
-  planing_ahead:"التخطيط للمستقبل",
+  "{{adults}} adults, {{children}} children": "{{adults}} بالغين، {{children}} أطفال",
+  "Generating your plan...": "جاري إنشاء خطتك...",
+  planing_ahead: "التخطيط للمستقبل",
+  plan: {
+    budget: "ما هي ميزانيتك؟",
+    dateRang: "ما هو نطاق التاريخ؟",
+    childrenAdults:"من يسافر؟"
+  },
   form: {
     title: "إنشاء حساب",
     name: "الاسم",

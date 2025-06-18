@@ -1,7 +1,7 @@
 import { Store } from '@tanstack/react-store'
 import { supabase } from '../db/SupabaseClinet'
 import type { Session, User } from '@supabase/supabase-js'
-import type { City } from './types'
+import type { City, Interes } from './types'
 
 type AuthState = {
     user: User | null
@@ -33,7 +33,7 @@ export async function signInWithEmail(email: string, password: string) {
     }))
 }
 
-export async function signUpWithEmail(email: string, password: string, name: string, interests?: Array<string>, homeAirePort?: City) {
+export async function signUpWithEmail(email: string, password: string, name: string, interests?: Array<Interes>, homeAirePort?: City) {
     userStore.setState((prev) => ({ ...prev, error: null }))
     const { data, error } = await supabase.auth.signUp({
         email,

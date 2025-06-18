@@ -1,12 +1,13 @@
 import { useTranslation } from 'react-i18next'
-import footer from "../../public/footer.png"
-import flyIcon from '../../public/fly.svg'
-import fly2 from '../../public/fly2.svg'
-import pic from '../../public/pic.svg'
-import erath from '../../public/erath.svg'
-import money from '../../public/money.png'
-import money2 from '../../public/money2.png'
-import clock from '../../public/clock.png'
+import { useNavigate } from '@tanstack/react-router'
+import footer from "../assets/footer.png"
+import flyIcon from '../assets/fly.svg'
+import fly2 from '../assets/fly2.svg'
+import pic from '../assets/pic.svg'
+import erath from '../assets/erath.svg'
+import money from '../assets/money.png'
+import money2 from '../assets/money2.png'
+import clock from '../assets/clock.png'
 import MainCard from './MainCard'
 import CitySelector from './CitySelector'
 
@@ -15,6 +16,8 @@ import CitySelector from './CitySelector'
 
 export default function MainLayout() {
     const { t } = useTranslation()
+      const navigation=useNavigate()
+    
     return (
         <div
             className='w-full gap-[96px] mt-30 h-full flex flex-col items-center justify-center text-3xl font-bold text-foreground'
@@ -22,7 +25,9 @@ export default function MainLayout() {
             <h1 className=' text-[96px] font-bold text-background '>
                 {t('welcome_to_travel_planner')}
             </h1>
-            <div className='w-full rounded-2xl m-1 flex flex-col justify-between items-center p-4 shadow-accent-foreground/5 shadow-xl  bg-background h-72 max-w-[960px] text-center text-2xl font-semibold text-foreground'>
+            <div onClick={()=>{
+                navigation({to:"/login"})
+            }} className='w-full rounded-2xl m-1 flex flex-col justify-between items-center p-4 shadow-accent-foreground/5 shadow-xl  bg-background h-72 max-w-[960px] text-center text-2xl font-semibold text-foreground'>
                 <img src={flyIcon} alt="Fly Icon" />
                 <p className='text-[#A8A29E] text-3xl'>{t('travel_planner_description')}</p>
                 <CitySelector />

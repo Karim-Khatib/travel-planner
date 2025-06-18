@@ -7,7 +7,7 @@ import { useCallback, } from "react";
 import { useStore } from '@tanstack/react-store'
 import InterestSelector from "./InterestSelector";
 import CitySelector from "./CitySelector";
-import type { City } from "@/lib/types";
+import type { City, Interes } from "@/lib/types";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -24,7 +24,10 @@ export default function RegisterForm() {
     name: z.string().min(2, t("form.name_error")),
     email: z.string().email(t("form.email_error")),
     password: z.string().min(6, t("form.password_error")),
-    interests: z.array(z.string(),).optional(),
+    interests: z.array(z.object({
+      key: z.string(),
+      emoji: z.string()
+    }),).optional(),
     homeAirport: z.object({
       name: z.string(),
                     country: z.string() 
@@ -44,7 +47,7 @@ export default function RegisterForm() {
   });
   const interests = watch('interests')
   const homeAirport = watch('homeAirport')
-  const setInterests = useCallback((selectedInterests: Array<string>) => {
+  const setInterests = useCallback((selectedInterests: Array<Interes>) => {
     setValue('interests', selectedInterests)
   }, [setValue])
   const setHomeAirport = useCallback((airport:City) => {

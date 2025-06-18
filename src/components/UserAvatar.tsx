@@ -1,5 +1,4 @@
 import { useStore } from '@tanstack/react-store'
-import { Avatar } from './ui/avatar'
 import { userStore } from '@/lib/userStore'
 import { cn } from '@/lib/utils'
 

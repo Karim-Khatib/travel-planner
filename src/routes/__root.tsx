@@ -17,7 +17,10 @@ function RootRoute() {
       </div>
     )
   }
-    return <Outlet  />
+    return (
+    <div className='h-full w-full flex flex-col bg-background'>
+      <Outlet  />
+      </div>)
   // if (location.pathname === '/login' || location.pathname === '/register') {
   // }
   // return (

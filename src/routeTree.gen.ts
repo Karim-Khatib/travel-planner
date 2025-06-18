@@ -14,6 +14,8 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as HomeRouteRouteImport } from './routes/home/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as HomeIndexRouteImport } from './routes/home/index'
+import { Route as HomeGeneratePlaneRouteImport } from './routes/home/generate-plane'
+import { Route as HomeIdRouteImport } from './routes/home/$id'
 
 const RegisterRoute = RegisterRouteImport.update({
   id: '/register',
@@ -40,18 +42,32 @@ const HomeIndexRoute = HomeIndexRouteImport.update({
   path: '/',
   getParentRoute: () => HomeRouteRoute,
 } as any)
+const HomeGeneratePlaneRoute = HomeGeneratePlaneRouteImport.update({
+  id: '/generate-plane',
+  path: '/generate-plane',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
+const HomeIdRoute = HomeIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/home': typeof HomeRouteRouteWithChildren
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/home/$id': typeof HomeIdRoute
+  '/home/generate-plane': typeof HomeGeneratePlaneRoute
   '/home/': typeof HomeIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/home/$id': typeof HomeIdRoute
+  '/home/generate-plane': typeof HomeGeneratePlaneRoute
   '/home': typeof HomeIndexRoute
 }
 export interface FileRoutesById {
@@ -60,14 +76,37 @@ export interface FileRoutesById {
   '/home': typeof HomeRouteRouteWithChildren
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/home/$id': typeof HomeIdRoute
+  '/home/generate-plane': typeof HomeGeneratePlaneRoute
   '/home/': typeof HomeIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/home' | '/login' | '/register' | '/home/'
+  fullPaths:
+    | '/'
+    | '/home'
+    | '/login'
+    | '/register'
+    | '/home/$id'
+    | '/home/generate-plane'
+    | '/home/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/register' | '/home'
-  id: '__root__' | '/' | '/home' | '/login' | '/register' | '/home/'
+  to:
+    | '/'
+    | '/login'
+    | '/register'
+    | '/home/$id'
+    | '/home/generate-plane'
+    | '/home'
+  id:
+    | '__root__'
+    | '/'
+    | '/home'
+    | '/login'
+    | '/register'
+    | '/home/$id'
+    | '/home/generate-plane'
+    | '/home/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -114,14 +153,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HomeIndexRouteImport
       parentRoute: typeof HomeRouteRoute
     }
+    '/home/generate-plane': {
+      id: '/home/generate-plane'
+      path: '/generate-plane'
+      fullPath: '/home/generate-plane'
+      preLoaderRoute: typeof HomeGeneratePlaneRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
+    '/home/$id': {
+      id: '/home/$id'
+      path: '/$id'
+      fullPath: '/home/$id'
+      preLoaderRoute: typeof HomeIdRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
   }
 }
 
 interface HomeRouteRouteChildren {
+  HomeIdRoute: typeof HomeIdRoute
+  HomeGeneratePlaneRoute: typeof HomeGeneratePlaneRoute
   HomeIndexRoute: typeof HomeIndexRoute
 }
 
 const HomeRouteRouteChildren: HomeRouteRouteChildren = {
+  HomeIdRoute: HomeIdRoute,
+  HomeGeneratePlaneRoute: HomeGeneratePlaneRoute,
   HomeIndexRoute: HomeIndexRoute,
 }
 
